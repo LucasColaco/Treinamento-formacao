@@ -1,6 +1,5 @@
 package com.basis.campina.xtarefas.servico.dto;
 
-import com.sun.istack.NotNull;
 import java.io.Serializable;
 import java.time.LocalDate;
 import lombok.Getter;
