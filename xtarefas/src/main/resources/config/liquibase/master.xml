@@ -7,4 +7,5 @@
 
     <include file="config/liquibase/changelogs/20210719174900_create_table_responsavel.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelogs/20210719212100_create_table_tarefa.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelogs/20210720220900_create_table_anexo.xml" relativeToChangelogFile="false"/>
 </databaseChangeLog>

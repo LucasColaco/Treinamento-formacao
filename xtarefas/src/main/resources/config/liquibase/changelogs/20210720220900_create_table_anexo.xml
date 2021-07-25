@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet id="20210720220900-1" author="lucas.colaco">
+        <createTable tableName="TB_ANEXO">
+            <column name="ID" type="NUMBER(10)"></column>
+            <column name="FILE" type="VARCHAR2(255)"></column>
+            <column name="FILE_NAME" type="VARCHAR2(255)"></column>
+            <column name="TAREFA_ID" type="NUMBER(10)"></column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="20210720220900-2" author="lucas.colaco">
+        <addNotNullConstraint tableName="TB_ANEXO" columnName="ID"/>
+        <addNotNullConstraint tableName="TB_ANEXO" columnName="FILE"/>
+        <addNotNullConstraint tableName="TB_ANEXO" columnName="FILE_NAME"/>
+    </changeSet>
+
+    <changeSet id="20210720220900-3" author="lucas.colaco">
+        <addForeignKeyConstraint baseTableName="TB_ANEXO" baseColumnNames="TAREFA_ID" constraintName="ANEXO_TAREFA_FK" referencedTableName="TB_TAREFA"
+                                 referencedColumnNames="ID"/>
+    </changeSet>
+
+    <changeSet id="20210720220900-4" author="lucas.colaco">
+        <addPrimaryKey tableName="TB_ANEXO" columnNames="ID" constraintName="ANEXO_PK"/>
+    </changeSet>
+
+    <changeSet id="20210720220900-5" author="lucas.colaco">
+        <createSequence sequenceName="SEQ_ANEXO" incrementBy="1" startValue="1"/>
+    </changeSet>
+</databaseChangeLog>
