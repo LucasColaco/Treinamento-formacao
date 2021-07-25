@@ -2,8 +2,6 @@ package com.basis.campina.xtarefas.servico.dto;
 
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -11,14 +9,11 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class TarefaDTO implements Serializable {
+public class AnexoDTO implements Serializable {
     private static final long serialVersionUID = 7903389797228217841L;
 
     private Integer id;
-    private String nome;
-    private LocalDate dtInicio;
-    private LocalDate dtConclusao;
-    private String status;
-    private Integer responsavel;
-    private List<AnexoDTO> anexos = new ArrayList<>();
+    private String file;
+    private String fileName;
+    private Integer tarefaId;
 }
