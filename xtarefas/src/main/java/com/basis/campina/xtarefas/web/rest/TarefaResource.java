@@ -1,8 +1,6 @@
 package com.basis.campina.xtarefas.web.rest;
 
-import com.basis.campina.xtarefas.servico.ResponsavelService;
 import com.basis.campina.xtarefas.servico.TarefaService;
-import com.basis.campina.xtarefas.servico.dto.ResponsavelDTO;
 import com.basis.campina.xtarefas.servico.dto.TarefaDTO;
 import java.net.URI;
 import java.net.URISyntaxException;
