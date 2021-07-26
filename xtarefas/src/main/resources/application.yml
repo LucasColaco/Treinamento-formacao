@@ -4,6 +4,7 @@ spring:
   jpa:
     database: POSTGRESQL
     show-sql: true
+    open-in-view: false
   hibernate:
     ddl-auto: none
     naming:
@@ -18,3 +19,6 @@ spring:
     password: xtarefas
   liquibase:
     change-log: classpath:/config/liquibase/master.xml
+application:
+  feign:
+    url-documents: http://localhost:8081
