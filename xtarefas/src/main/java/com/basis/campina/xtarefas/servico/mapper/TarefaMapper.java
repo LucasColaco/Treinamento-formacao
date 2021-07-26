@@ -7,7 +7,7 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
 
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring", uses = {AnexoMapper.class})
 public interface TarefaMapper extends EntityMapper<TarefaDTO, Tarefa> {
 
     @Override

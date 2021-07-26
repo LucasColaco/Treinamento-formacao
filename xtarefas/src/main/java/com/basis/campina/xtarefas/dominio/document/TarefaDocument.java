@@ -1,4 +1,4 @@
-package com.basis.campina.xtarefas.dominio.elasticsearch;
+package com.basis.campina.xtarefas.dominio.document;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;

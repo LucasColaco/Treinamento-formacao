@@ -1,11 +1,17 @@
 package com.basis.campina.xtarefas.web.rest;
 
+import com.basis.campina.xtarefas.dominio.document.TarefaDocument;
 import com.basis.campina.xtarefas.servico.TarefaService;
 import com.basis.campina.xtarefas.servico.dto.TarefaDTO;
+import com.basis.campina.xtarefas.servico.elastic.TarefaSearchService;
+import com.basis.campina.xtarefas.servico.filter.TarefaFilter;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,6 +28,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class TarefaResource {
 
     private final TarefaService tarefaService;
+
+    private final TarefaSearchService tarefaSearchService;
 
     @GetMapping
     public ResponseEntity<List<TarefaDTO>> buscar(){
@@ -52,4 +60,9 @@ public class TarefaResource {
         return ResponseEntity.ok().build();
     }
 
+    @PostMapping("/_search")
+    public ResponseEntity<Page<TarefaDocument>> search(@RequestBody TarefaFilter filter, Pageable pageable) {
+        Page<TarefaDocument> tarefas = tarefaSearchService.search(filter, pageable);
+        return new ResponseEntity<>(tarefas, HttpStatus.OK);
+    }
 }

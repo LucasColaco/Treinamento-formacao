@@ -1,4 +1,4 @@
-package com.basis.campina.xtarefas.dominio.elasticsearch;
+package com.basis.campina.xtarefas.dominio.document;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -31,6 +31,10 @@ public class ResponsavelDocument extends BaseDocument{
             otherFields = {@InnerField(suffix = SORT, type = FieldType.Date, store = true,
                     format = DateFormat.custom, pattern = DATE_PATTERN)})
     private String dtNascimento;
+
+    @MultiField(mainField = @Field(type = FieldType.Text, store = true, analyzer = TRIM_CASE_INSENSITIVE, fielddata = true), otherFields = {
+            @InnerField(suffix = SORT, type = FieldType.Text, store = true, analyzer = TRIM_CASE_INSENSITIVE, fielddata = true)})
+    private String tarefas;
 
     public ResponsavelDocument(Integer id, String nome, String email, LocalDate dtNascimento){
         this.id = id;

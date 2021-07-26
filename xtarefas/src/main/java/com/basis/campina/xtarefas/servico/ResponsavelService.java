@@ -41,4 +41,8 @@ public class ResponsavelService {
         buscarPorId(id);
         responsavelRepository.deleteById(id);
     }
+
+    public void emitirEvento(Integer id){
+        applicationEventPublisher.publishEvent(new ResponsavelEvent(id));
+    }
 }
