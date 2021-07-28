@@ -2,24 +2,26 @@ package com.basis.campina.xtarefas.servico;
 
 import com.basis.campina.xtarefas.dominio.Responsavel;
 import com.basis.campina.xtarefas.repositorio.ResponsavelRepository;
+import com.basis.campina.xtarefas.repositorio.elasticsearch.ResponsavelSearchRepository;
 import com.basis.campina.xtarefas.servico.dto.ResponsavelDTO;
 import com.basis.campina.xtarefas.servico.event.ResponsavelEvent;
 import com.basis.campina.xtarefas.servico.mapper.ResponsavelMapper;
 import java.util.List;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
-@Slf4j
+@Transactional
 @RequiredArgsConstructor
 public class ResponsavelService {
 
     private final ResponsavelRepository responsavelRepository;
     private final ResponsavelMapper responsavelMapper;
     private final ApplicationEventPublisher applicationEventPublisher;
+    private final ResponsavelSearchRepository responsavelSearchRepository;
 
     public List<ResponsavelDTO> buscar(){
         return responsavelRepository.findAll().stream().map(responsavelMapper::toDto).collect(Collectors.toList());

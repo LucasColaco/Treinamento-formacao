@@ -1,7 +1,7 @@
 package com.basis.campina.xtarefas.servico.elastic;
 
 
-import com.basis.campina.xtarefas.dominio.elasticsearch.TarefaDocument;
+import com.basis.campina.xtarefas.dominio.document.TarefaDocument;
 import com.basis.campina.xtarefas.repositorio.TarefaRepository;
 import com.basis.campina.xtarefas.repositorio.elasticsearch.TarefaSearchRepository;
 import com.basis.campina.xtarefas.servico.event.TarefaEvent;

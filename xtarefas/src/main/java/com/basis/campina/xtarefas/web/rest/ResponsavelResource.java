@@ -1,11 +1,17 @@
 package com.basis.campina.xtarefas.web.rest;
 
+import com.basis.campina.xtarefas.dominio.document.ResponsavelDocument;
 import com.basis.campina.xtarefas.servico.ResponsavelService;
 import com.basis.campina.xtarefas.servico.dto.ResponsavelDTO;
+import com.basis.campina.xtarefas.servico.elastic.ResponsavelSearchService;
+import com.basis.campina.xtarefas.servico.filter.ResponsavelFilter;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,6 +28,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class ResponsavelResource {
 
     private final ResponsavelService responsavelService;
+    private final ResponsavelSearchService responsavelSearchService;
 
     @GetMapping
     public ResponseEntity<List<ResponsavelDTO>> buscar(){
@@ -52,4 +59,9 @@ public class ResponsavelResource {
         return ResponseEntity.ok().build();
     }
 
+    @PostMapping("/search")
+    public ResponseEntity<Page<ResponsavelDocument>> search(@RequestBody ResponsavelFilter filter, Pageable pageable) {
+        Page<ResponsavelDocument> responsaveis = responsavelSearchService.search(filter, pageable);
+        return new ResponseEntity<>(responsaveis, HttpStatus.OK);
+    }
 }

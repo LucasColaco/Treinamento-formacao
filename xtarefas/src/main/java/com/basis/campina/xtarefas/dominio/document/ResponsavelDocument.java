@@ -1,4 +1,4 @@
-package com.basis.campina.xtarefas.dominio.elasticsearch;
+package com.basis.campina.xtarefas.dominio.document;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -28,8 +28,8 @@ public class ResponsavelDocument extends BaseDocument{
     private String email;
 
     @MultiField(mainField = @Field(type = FieldType.Keyword, store = true),
-            otherFields = {@InnerField(suffix = SORT, type = FieldType.Date, store = true,
-                    format = DateFormat.custom, pattern = DATE_PATTERN)})
+            otherFields = {@InnerField(suffix = SORT, type = FieldType.Date, store = true, format = DateFormat.custom, pattern = DATE_PATTERN)
+            })
     private String dtNascimento;
 
     public ResponsavelDocument(Integer id, String nome, String email, LocalDate dtNascimento){

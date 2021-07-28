@@ -1,4 +1,4 @@
-package com.basis.campina.xtarefas.dominio.elasticsearch;
+package com.basis.campina.xtarefas.dominio.document;
 
 import java.io.Serializable;
 import lombok.Getter;
@@ -20,6 +20,7 @@ public class BaseDocument implements Serializable {
     protected static final String DATE_PATTERN = "dd/MM/yyyy";
 
     @MultiField(mainField = @Field(type = FieldType.Integer, store = true),
-            otherFields = {@InnerField(suffix = SORT, type = FieldType.Integer, store = true)})
+            otherFields = {@InnerField(suffix = SORT, type = FieldType.Integer, store = true)
+            })
     protected Integer id;
 }
