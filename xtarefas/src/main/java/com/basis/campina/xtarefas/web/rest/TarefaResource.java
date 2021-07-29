@@ -3,12 +3,10 @@ package com.basis.campina.xtarefas.web.rest;
 import com.basis.campina.xtarefas.dominio.document.TarefaDocument;
 import com.basis.campina.xtarefas.servico.TarefaService;
 import com.basis.campina.xtarefas.servico.dto.TarefaDTO;
-import com.basis.campina.xtarefas.servico.elastic.ElasticsearchService;
 import com.basis.campina.xtarefas.servico.elastic.TarefaSearchService;
 import com.basis.campina.xtarefas.servico.filter.TarefaFilter;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -31,11 +29,6 @@ public class TarefaResource {
     private final TarefaService tarefaService;
 
     private final TarefaSearchService tarefaSearchService;
-
-    @GetMapping
-    public ResponseEntity<List<TarefaDTO>> buscar(){
-        return ResponseEntity.ok(tarefaService.buscar());
-    }
 
     @GetMapping("/{id}")
     public ResponseEntity<TarefaDTO> buscarPorId(@PathVariable Integer id){

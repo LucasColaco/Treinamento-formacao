@@ -7,7 +7,6 @@ import com.basis.campina.xtarefas.servico.elastic.ResponsavelSearchService;
 import com.basis.campina.xtarefas.servico.filter.ResponsavelFilter;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -42,10 +41,10 @@ public class ResponsavelResource {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<ResponsavelDTO> editar(@PathVariable Integer id, @RequestBody ResponsavelDTO responsavelDTO){
+    public ResponseEntity<Void> editar(@PathVariable Integer id, @RequestBody ResponsavelDTO responsavelDTO){
         responsavelDTO.setId(id);
-        ResponsavelDTO dto = responsavelService.salvar(responsavelDTO);
-        return ResponseEntity.ok(dto);
+        responsavelService.alterar(responsavelDTO);
+        return ResponseEntity.ok().build();
     }
 
     @DeleteMapping("/{id}")

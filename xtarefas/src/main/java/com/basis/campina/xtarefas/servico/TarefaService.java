@@ -21,10 +21,6 @@ public class TarefaService {
     private final TarefaMapper tarefaMapper;
     private final ApplicationEventPublisher applicationEventPublisher;
 
-    public List<TarefaDTO> buscar(){
-        return tarefaRepository.findAll().stream().map(tarefaMapper::toDto).collect(Collectors.toList());
-    }
-
     public TarefaDTO buscarPorId(Integer id){
         Tarefa tarefa = tarefaRepository.findById(id).orElseThrow(()->new RuntimeException("Tarefa não encontrada"));
         return tarefaMapper.toDto(tarefa);
