@@ -30,11 +30,6 @@ public class ResponsavelResource {
     private final ResponsavelService responsavelService;
     private final ResponsavelSearchService responsavelSearchService;
 
-    @GetMapping
-    public ResponseEntity<List<ResponsavelDTO>> buscar(){
-        return ResponseEntity.ok(responsavelService.buscar());
-    }
-
     @GetMapping("/{id}")
     public ResponseEntity<ResponsavelDTO> buscarPorId(@PathVariable Integer id){
         return ResponseEntity.ok(responsavelService.buscarPorId(id));

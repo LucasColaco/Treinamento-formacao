@@ -1,5 +1,6 @@
 package com.basis.campina.xtarefas.servico.dto;
 
+import com.basis.campina.xtarefas.dominio.Responsavel;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;

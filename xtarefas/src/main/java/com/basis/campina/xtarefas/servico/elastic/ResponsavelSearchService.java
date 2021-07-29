@@ -3,7 +3,6 @@ package com.basis.campina.xtarefas.servico.elastic;
 
 import com.basis.campina.xtarefas.dominio.document.ResponsavelDocument;
 import com.basis.campina.xtarefas.repositorio.ResponsavelRepository;
-import com.basis.campina.xtarefas.repositorio.elasticsearch.Reindexer;
 import com.basis.campina.xtarefas.repositorio.elasticsearch.ResponsavelSearchRepository;
 import com.basis.campina.xtarefas.servico.event.ResponsavelEvent;
 import com.basis.campina.xtarefas.servico.filter.ResponsavelFilter;
@@ -19,7 +18,7 @@ import org.springframework.transaction.event.TransactionalEventListener;
 @Slf4j
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
-public class ResponsavelSearchService  {
+public class ResponsavelSearchService{
 
     private final ResponsavelRepository responsavelRepository;
     private final ResponsavelSearchRepository responsavelSearchRepository;
